@@ -116,4 +116,34 @@ ALTER TABLE meal_plans
 ADD CONSTRAINT fk_meal_plans_challenge_days
 FOREIGN KEY (ChallengeDay) REFERENCES challenge_days(ChallengeDay);
 
-DROP DATABASE 75HardDatabase;
+-- Modify the foreign key constraint
+ALTER TABLE achievements
+DROP FOREIGN KEY fk_achievements_users;
+
+-- Add the foreign key constraint with ON DELETE CASCADE
+ALTER TABLE achievements
+ADD CONSTRAINT fk_achievements_users
+FOREIGN KEY (UserID) REFERENCES users(UserID)
+ON DELETE CASCADE;
+
+-- Modify the foreign key constraint
+ALTER TABLE meal_plans
+DROP FOREIGN KEY fk_meal_plans_users;
+
+-- Add the foreign key constraint with ON DELETE CASCADE
+ALTER TABLE meal_plans
+ADD CONSTRAINT fk_meal_plans_users
+FOREIGN KEY (UserID) REFERENCES users(UserID)
+ON DELETE CASCADE;
+
+-- Modify the foreign key constraint
+ALTER TABLE workouts
+DROP FOREIGN KEY fk_workouts_users;
+
+-- Add the foreign key constraint with ON DELETE CASCADE
+ALTER TABLE workouts
+ADD CONSTRAINT fk_workouts_users
+FOREIGN KEY (UserID) REFERENCES users(UserID)
+ON DELETE CASCADE;
+
+-- DROP DATABASE 75HardDatabase;
