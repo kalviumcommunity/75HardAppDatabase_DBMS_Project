@@ -2,6 +2,14 @@
 CREATE ROLE Administrator;
 CREATE ROLE AppUser;
 
+-- Create User 'admin' with Password 'admin_password' and Assign the Administrator Role
+CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin_password';
+GRANT Administrator TO 'admin'@'localhost';
+
+-- Create User 'appuser' with Password 'appuser_password' and Assign the AppUser Role
+CREATE USER 'appuser'@'localhost' IDENTIFIED BY 'appuser_password';
+GRANT AppUser TO 'appuser'@'localhost';
+
 -- Grant All Privileges to Administrator
 GRANT ALL PRIVILEGES ON 75HardDatabase.* TO Administrator;
 
