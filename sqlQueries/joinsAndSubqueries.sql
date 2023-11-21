@@ -1,3 +1,4 @@
+USE 75HardDatabase;
 -- Inner Join to Retrieve User and Role Information
 SELECT users.UserID, users.Username, users.Email, roles.RoleName
 FROM users
